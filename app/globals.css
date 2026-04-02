@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --ink:        #080807;
+    --ink2:       #111110;
+    --ink3:       #1c1b19;
+    --ink4:       #2a2926;
+    --ink5:       #3a3835;
+    --gold:       #c9962a;
+    --gold2:      #e8b84b;
+    --gold3:      #f5d080;
+    --gold-glow:  rgba(201, 150, 42, 0.3);
+    --cream:      #f5f0e8;
+    --mist:       #b8b2a8;
+    --stone:      #7a7570;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--ink);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--ink2); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+  ::selection { background: var(--gold); color: var(--ink); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-fadeUp { animation: fadeUp 0.7s cubic-bezier(0.4,0,0.2,1) both; }
+.animate-fadeIn { animation: fadeIn 0.5s ease both; }
+.animate-slideDown { animation: slideDown 0.4s cubic-bezier(0.4,0,0.2,1) both; }
+.animate-marquee { animation: marquee 28s linear infinite; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+input[type='range'] {
+  -webkit-appearance: none; appearance: none;
+  background: transparent; cursor: pointer; width: 100%;
+}
+input[type='range']::-webkit-slider-track { background: var(--ink5); height: 2px; }
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  background: var(--gold); height: 16px; width: 16px;
+  border-radius: 50%; margin-top: -7px;
+}
+input[type='range']::-moz-range-thumb {
+  background: var(--gold); height: 16px; width: 16px;
+  border-radius: 50%; border: none;
+}
